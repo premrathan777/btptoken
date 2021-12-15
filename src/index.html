@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BTP Token ICO Sale</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!--<link rel="stylesheet" href="style.css">-->     
+</head>
+<!--STYLE-->
+<style>
+ .card {
+    margin: 100px auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+.objectives-custom{
+    width: 80%;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .objectives-custom{
+    width:100%;
+  }
+}
+ .body{
+    background-image: url("4kimg.jpg"); 
+    background-color: #ccccc; 
+ }
+ .b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+ .marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+/* rtl:begin:ignore */
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+</style>
+<!--END OF STYLE-->
+<body class="body">
+<!--Start of Nav Bar--->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">BTP Token</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#objectives">About The Project</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Roadmap">Roadmap</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Team">Team</a>
+        </li>
+
+      </ul>
+      
+      <li class= " ml-auto" style="list-style: none;" >
+        <p id="accountAddress" style="padding: 0px 15px 0px 15px; margin-bottom: 0;"></p>
+      </li>
+    
+    </div>
+  </div>
+</nav>
+<!---End of Nav Bar---> 
+
+<!-- Start of buy tokens -->
+   <div class="container">
+     <div class="row">
+       <div class="col-lg-12">
+         <h1 class="text-center mt-2" style="color: white;"> BTP Token ICO SALE</h1>
+         <hr>
+         <br>
+       </div>
+
+       <div id="loader" class="col-lg-12">
+         <p class="text-center">Loading...</p>
+       </div>
+
+       <br>
+
+       <div id="content" class="mx-auto text-center" style="display: none; color: white;">
+        <p>Introducing "BTP Token"
+          Token price is <span class="token-price"></span> Ether. You currently have <span class="BTP-balance"></span>&nbsp;BTP coins.
+        </p>
+        <br>
+        <form onSubmit="App.buyTokens(); return false;" role="form" class="form">
+          <div class="form-group">
+          <div class="input-group">
+              <label for="numberOfTokens"></label>
+              <input type="number" class="form-control form-control-lg" name="number" value="1" min="1" placeholder="Enter No. of tokens" id="numberOfTokens" pattern="[0-9]"> 
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="submit">Buy Tokens</button>
+            </div>
+          </div>
+          </div>
+       </form>
+       
+       <br>
+
+       <div class="progress">
+         <div id="progress" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+       </div>
+
+       <br>
+
+       <p> <span class="tokens-sold"></span> / <span class="tokens-available"> Tokens available</span> Tokens sold</p>
+       
+       <hr>
+
+       
+
+      </div>
+       
+     </div>
+
+   </div>
+  
+  <!--End of buy tokens-->
+
+<!--Start of Objectives-->  
+
+<div class="card mx-auto objectives-custom" id= "objectives" >
+  <div class="card-header " style="text-align: center;
+" >
+  <h4 class="text-primary">About the Project</h4>
+ 
+  </div>
+  <div class="card-body">
+    
+    <p class="card-text  mx-auto">
+      
+      Cryptocurrency has become one of the trending topics in the modern world. Initial Coin
+Offering is the technique in which a new startup or new company can invite other settled
+companies to invest in their company through cryptocurrency.As a part of this project,
+we are basically implementing our own cryptocurrency and also to create an ICO.We are
+using the ethereum blockchain inorder to achieve this by following the ERC20 guidelines.
+
+      <h5  >Our objectives are:</h5>
+       <ul>
+      <li>Creating ERC20 smart contract.</li>
+      <li>Writing tests for ERC20 smart contract.</li>
+      <li>Create a token sale smart contract.</li>
+      <li>Writing tests for these token sale smart contract.</li>
+    </ul> 
+    </p>
+    <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+  </div>
+</div>
+
+<!--End of Objectives-->
+<div class="b-example-divider"></div>
+<!-- Start of Road Map -->
+<div class="card mx-auto objectives-custom" id= "Roadmap" >
+ 
+  <div class="card-header " style="text-align: center;
+">
+  <h4 class="text-primary">Road Map</h4>
+ 
+  </div>
+<img src="RM.jpg" class="card-img-top" alt="...">
+
+</div>
+<div class="b-example-divider"></div>
+<!--Start of Team-->
+<div class="card mx-auto objectives-custom" id= "Team" >
+
+  <div class="card-header " style="text-align: center;
+">
+  <h4 class="text-primary">Team</h4>
+ 
+  </div>
+
+<div class="container marketing" style="justify-content: center;">
+
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <div class="col-lg-4">
+      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+      <h2>V.J.S PAVAN KUMAR</h2>
+      <p>S20180010183 - Project Lead</p>
+      <p><a class="btn btn-secondary" href="#">View details »</a></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+      <h2>V.Komal Kumar</h2>
+      <p>S20180010189 - Project Member</p>
+      <p><a class="btn btn-secondary" href="#">View details »</a></p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+      <h2>T.Prem Ratan</h2>
+      <p>S20180010178 - Project Member</p>
+      <p><a class="btn btn-secondary" href="#">View details »</a></p>
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
+</div>
+  </div>
+
+<!-- End of Team-->
+<!--Start of  Footer -->
+
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+      </a>
+      <span class="text-muted">© 2021 Company, Inc</span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex" style="color: rebeccapurple;">
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+    </ul>
+  </footer>
+</div>
+<!-- End of FOoter -->
+<script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

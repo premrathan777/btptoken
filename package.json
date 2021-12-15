@@ -1,0 +1,17 @@
+{   "name": "BTPtoken_ico",
+    "version": "1.0.0",
+    "desctiption": "BTPToken and ICO",
+    "main": "truffle.js",
+    "directories": {
+        "test": "test" 
+    },
+    "scripts": {
+        "dev" : "lite-server"
+    },
+
+    "author": "VASIREDDY KOMAL KUMAR",
+    "license": "ISC",
+    "devDependencies": {
+        "lite-server": "^2.6.1"
+    }
+}
